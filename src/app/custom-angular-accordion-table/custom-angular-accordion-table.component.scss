@@ -1,0 +1,267 @@
+// Table global styles
+.mat-table {
+  width: 100%;
+  .mat-row:nth-child(odd) {
+    background-color: #fff;
+  }
+  .mat-row:nth-child(even) {
+    background-color: #eee !important;
+  }
+  .mat-cell {
+    text-overflow: ellipsis;
+    font-size: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  th {
+    &.mat-header-cell {
+      font-size: 16px;
+      color: #333;
+      text-align: left;
+      font-weight: 500;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    &.mat-header-cell:first-of-type {
+      padding-left: 2rem;
+    }
+    &.mat-header-cell:last-of-type {
+      padding-right: 2rem;
+    }
+  }
+  td {
+    &.mat-cell,
+    &.mat-footer-cell {
+      padding: 15px;
+    }
+    &.mat-cell:first-of-type,
+    &.mat-footer-cell:first-of-type {
+      padding-left: 2rem;
+    }
+    &.mat-cell:last-of-type,
+    &.mat-footer-cell:last-of-type {
+      padding-right: 2rem;
+    }
+    &.expand-detail.mat-cell {
+      padding-left: 0;
+      padding-right: 0;
+      border-bottom-width: 0;
+    }
+  }
+  .fep-expansion-row {
+    position: relative;
+  }
+  .fep-expansion-icon {
+    position: absolute;
+    left: 5px;
+    padding-top: 6px !important;
+  }
+}
+
+.fep-expand-table-detail {
+  padding: 0 !important;
+}
+
+.member-roster-table {
+  .mat-row:hover {
+    background-color: initial;
+  }
+}
+
+// Table Global styles
+.fep-accordion-table {
+  overflow-x: auto;
+  overflow-y: hidden;
+  .mat-accordion {
+    .mat-header-row {
+      padding-left: 44px;
+      padding-right: 0;
+      color: #333;
+      font-size: 15px;
+      font-weight: 400;
+      min-width: 1400px;
+      max-height: 54px;
+      border-bottom: 1px solid #c2c8ce;
+    }
+  }
+  .mat-expansion-panel {
+    overflow: visible !important;
+    display: unset;
+    &:nth-child(even) .mat-expansion-panel-header {
+      background-color: #fff;
+    }
+    &:nth-child(odd) .mat-expansion-panel-header {
+      background-color: #eee !important;
+    }
+    .mat-content {
+      overflow: visible;
+    }
+    .mat-expansion-panel-header {
+      &.mat-row {
+        font-size: 16px;
+        color: #565f64;
+        padding-left: 20px;
+        padding-right: 0;
+        height: fit-content;
+        min-width: 1400px;
+        cursor: default;
+        border-bottom: 1px solid #c2c8ce;
+      }
+      &.mat-row:hover {
+        background-color: initial;
+      }
+    }
+    .mat-expansion-panel-content {
+      position: sticky;
+      left: 0;
+      font-size: 1rem;
+      color: #333;
+    }
+    .mat-expansion-panel-body {
+      padding: 0;
+      border-bottom: 1px solid #c2c8ce;
+    }
+    .mat-checkbox-layout {
+      margin-bottom: 0;
+    }
+    // Custom Indicator Rotation
+    .mat-expansion-indicator {
+      transition: transform 0.3s ease;
+      cursor: pointer;
+
+      &::after {
+        transform: rotate((-45deg));
+        color: #00a6d2;
+      }
+    }
+    &.mat-expanded {
+      .mat-expansion-indicator {
+        transform: rotate(90deg) !important;
+      }
+    }
+  }
+
+  .mat-expansion-panel-content {
+    position: sticky;
+    left: 0;
+  }
+  .mat-row,
+  .mat-header-row {
+    display: flex;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    align-items: center;
+    box-sizing: border-box;
+
+    // Workaround for https://goo.gl/pFmjJD in IE 11. Adds a pseudo
+    // element that will stretch the row the correct height. See:
+    // https://connect.microsoft.com/IE/feedback/details/802625
+    &::after {
+      display: inline-block;
+      min-height: inherit;
+      content: '';
+    }
+  }
+  .mat-cell {
+    font-size: 16px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-cell,
+  .mat-header-cell {
+    flex: 1;
+    word-wrap: break-word;
+    padding: 15px;
+  }
+
+  .mat-header-cell {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+  }
+}
+
+/*(Roster Custom Column Width)*/
+.prr-accordion-table {
+  .mat-expansion-panel {
+    &:nth-child(even) .mat-column-actions {
+      background-color: #fff;
+    }
+    &:nth-child(odd) .mat-column-actions {
+      background-color: #eee !important;
+    }
+  }
+  .mat-expansion-panel-header {
+    min-width: 1400px;
+
+    &.mat-row {
+      font-size: 16px;
+      color: #565f64;
+      padding-left: 20px;
+      padding-right: 0;
+      height: fit-content;
+      min-width: 1400px;
+    }
+  }
+  // Setting different width column for header row due to chevron
+  .mat-header-cell {
+    &.mat-column-select {
+      width: 42px;
+      max-width: 42px;
+      min-width: 42px;
+    }
+
+    &.mat-column-reasonForReferral {
+      width: 164px;
+      max-width: 164px;
+      min-width: 164px;
+    }
+
+    &.mat-column-actions {
+      width: 52px;
+      max-width: 52px;
+      min-width: 52px;
+      text-align: center;
+      position: sticky;
+      right: 0;
+    }
+  }
+  // Setting row column width
+  .mat-column-select {
+    width: 72px;
+    max-width: 72px;
+    min-width: 72px;
+  }
+  .mat-column-status {
+    span {
+      text-align: center;
+      width: 84px;
+      min-width: 84px;
+      max-width: 84px;
+    }
+  }
+  .mat-column-reasonForReferral {
+    width: 164px;
+    max-width: 164px;
+    min-width: 164px;
+  }
+
+  .mat-column-actions {
+    width: 83px;
+    max-width: 83px;
+    min-width: 83px;
+    border-left: 1px solid #c2c8ce !important;
+    box-shadow: -15px 0 10px 0px rgba(51, 51, 51, 0.05);
+    text-align: center;
+    position: sticky;
+    right: 0;
+    background: #fff;
+  }
+}
+
+.expansion-panel-container {
+  line-height: 2;
+  padding: 20px 132px;
+}

@@ -1,0 +1,81 @@
+<div class="fep-accordion-table">
+  <mat-accordion
+    [togglePosition]="'before'"
+    displayMode="flat"
+    multi
+    class="prr-accordion-table"
+  >
+    <section MatSort class="mat-header-row">
+      <span class="mat-header-cell mat-column-select">Select</span>
+      <span class="mat-header-cell">Status</span>
+      <span class="mat-header-cell">Member Plan</span>
+      <span class="mat-header-cell">Member ID</span>
+      <span class="mat-header-cell">Last Name</span>
+      <span class="mat-header-cell">First Name</span>
+      <span class="mat-header-cell">Plan Referred To</span>
+      <span class="mat-header-cell mat-column-reasonForReferral"
+        >Reason for Referral</span
+      >
+      <span class="mat-header-cell">Referral Date</span>
+      <span class="mat-header-cell">Referring Plan</span>
+      <span class="mat-header-cell mat-column-actions">Actions</span>
+    </section>
+
+    <mat-expansion-panel #expansionPanel>
+      <mat-expansion-panel-header
+        [@.disabled]="true"
+        class="mat-row"
+        (click)="expandPanel(expansionPanel, $event)"
+      >
+        <span fxLayoutAlign="center center" class="mat-cell mat-column-select">
+          <mat-checkbox fxLayoutAlign="center center"></mat-checkbox>
+        </span>
+        <span class="mat-cell">
+          <span ngClass=""> element.derievedStatus | titlecase </span>
+        </span>
+
+        <span class="mat-cell">element.memberPlan</span>
+        <span class="mat-cell"><a>element.memberID </a></span>
+        <span class="mat-cell"> element.memberLastName | titlecase</span>
+        <span class="mat-cell"> element.memberFirstName | titlecase</span>
+        <span class="mat-cell">
+          <span ngClass=""> element.referredToPlanCode | titlecase </span>
+        </span>
+        <span class="mat-cell mat-column-reasonForReferral">
+          element.reasonDesc | titlecase
+        </span>
+        <span class="mat-cell">
+          element.referralDate | date: 'MM/dd/yyyy'
+        </span>
+        <span class="mat-cell">
+          <span ngClass="">element.referringPlanCode | titlecase</span>
+        </span>
+        <span fxLayoutAlign="center center" class="mat-cell mat-column-actions">
+          <mat-icon class="cursor-pointer fep-blue-click">more_horiz</mat-icon>
+        </span>
+      </mat-expansion-panel-header>
+      <div fxLayout="row" class="pad-30" fxLayoutGap="3rem">
+        <div fxFlex fxLayout="row wrap" fxLayoutGap="1rem grid">
+          <span fxFlex="50" class="bold">DOB</span
+          ><span fxFlex="50">element.birthDate | date: 'MM/dd/yyyy'</span>
+          <span fxFlex="50" class="bold">Referral Source</span
+          ><span fxFlex="50">element.sourceDesc | titlecase</span>
+          <span fxFlex="50" class="bold">BHA Lifestyle Score</span
+          ><span fxFlex="50">FEP Primary</span>
+          <span fxFlex="50" class="bold">Contract ID</span
+          ><span fxFlex="50">element.contractID</span>
+        </div>
+        <div fxFlex fxLayout="row wrap" fxLayoutGap="1rem grid">
+          <span fxFlex="50" class="bold">Payer type</span
+          ><span fxFlex="50">FEP Primary</span>
+          <span fxFlex="50" class="bold">Last Updated</span
+          ><span fxFlex="50">
+            element.lastUpdatedDate | date: 'MM/dd/yyyy'
+          </span>
+          <span fxFlex="50" class="bold">Case type</span
+          ><span fxFlex="50">FEP Primary</span>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
